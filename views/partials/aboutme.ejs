@@ -1,0 +1,40 @@
+<div class="aboutme">
+    <img src="<%=user.image%>" alt="">
+    <h3><%=user.full_name%></h3>
+    <%
+        if(user.hobby){
+    %>
+        <p>
+            <%=user.hobby%>
+        </p>
+    <%
+        }else{
+    %>
+    <p style="color: red">
+        Добавьте хобби, многие пользователи ждут этого!
+    </p>
+    <%
+        }
+    %>
+    <p><%=myBlogs.length%>
+    <%if(myBlogs.length == 1 || (myBlogs.length-1)%100==0){
+    %>
+        пост
+    <%
+        }else if(myBlogs.length>=2 && myBlogs.length<=4){
+    %>
+        поста
+    <%
+        }else{
+    %>
+        постов
+    <%
+        }
+    %>
+        за всё время
+    </p>
+    <br>
+    <a href="/editprofile/<%=user._id%>">Редактировать</a>
+    <a href="/mynotes/<%=user._id%>">Мои заметки</a>
+    <a href="/api/signOut">Выйти</a>
+</div>

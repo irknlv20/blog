@@ -1,0 +1,129 @@
+.main{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 2%;
+}
+.main-profile{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+}
+.main-left{
+    padding: 40px 5%;
+    background-color: #FFFFFF;
+    width: 70%;
+}
+.main-left-profile{
+    padding: 40px 5%;
+    background-color: #FFFFFF;
+    width: 70%;
+}
+.main-right{
+    padding: 40px 2% 20px;
+    background-color: #FFFFFF;
+    width: 25%;
+    height: 100%;
+}
+.main-title-header{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 46px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.main-title-desc{
+    text-align: center;
+    font-weight: 400;
+    font-size: 17px;    
+    line-height: 20px;
+    margin-bottom: 60px;
+}
+.pages{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.pages a{
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+}
+.pages a:hover{
+    transition: .3s;
+    color: #4869e8;
+}
+.admin-main{
+    padding: 40px 5%;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+.admin-main h2{
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 60px;
+}
+.admin-panel h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+.table {
+    width: 100%;
+    border: none;
+    margin-bottom: 30px;
+    border-collapse: separate;
+}
+.table button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.table img{
+    width: 16px;
+}
+.table thead th {
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    padding: 10px 15px;
+    background: #EDEDED;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+}
+.table tr th:first-child, .table tr td:first-child {
+    border-left: 1px solid #ddd;
+}
+.table tr th:last-child, .table tr td:last-child {
+    border-right: 1px solid #ddd;
+}
+.table thead tr th:first-child {
+    border-radius: 20px 0 0 0;
+}
+.table thead tr th:last-child {
+    border-radius: 0 20px 0 0;
+}
+.table tbody td {
+    text-align: left;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    vertical-align: top;
+}
+.table tbody tr:nth-child(even) {
+    background: #F8F8F8;
+}
+.table tbody tr:last-child td{
+    border-bottom: 1px solid #ddd;
+}
+.table tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 20px;
+}
+.table tbody tr:last-child td:last-child {
+    border-radius: 0 0 20px 0;
+}

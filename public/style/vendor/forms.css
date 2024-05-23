@@ -1,0 +1,87 @@
+.login-container{
+    padding: 180px 0;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    gap:15px;
+}
+.login-container h2{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 46px;
+    color: #000000;
+}
+.login-container input {
+    background-color: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+    padding: 10px 15px;
+    width: 20%;
+    outline: none;
+    box-sizing: border-box;
+    
+}
+.login-container button{
+    background-color: #00A2DC;
+    border-radius: 4px; 
+    width: 20%;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    color: #FFF;
+    border: none;
+}
+.login-container p{
+    color: #666;
+    font-size: 14px;
+}
+.login-container p a{
+    text-decoration: none;
+}
+.comment-input{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.comment-input button{
+    background-color: #00A2DC;
+    border-radius: 4px;
+    width: 16%;
+    box-sizing: border-box;
+    padding: 15px 10px;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+}
+.comment-input textarea{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    padding-bottom: 40px;
+    background: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    border-radius: 4px 0px 0px 4px;
+    outline: none;
+}
+.comment-banner{
+    width: 100%;
+    background-color: #FFF3CD;
+    padding: 15px 30px;
+    box-sizing:border-box;
+    border-radius: 10px;
+}
+.comment-banner p{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 46px;
+    color: #856404;
+}
+.comment-banner p a{
+    color:#00A2DC;
+    text-decoration: none;
+}
+.google, .github{
+    font-size: 14px;
+    color: black;
+
+}

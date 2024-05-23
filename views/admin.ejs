@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head.ejs')%>
+    <title>Decode Blog</title>
+</head>
+<body>
+    <%-include('partials/header.ejs')%>
+    <div class="container">
+        <div class="main">
+            <div class="admin-main">
+                <h2>Админ панель</h2>
+                <div class="admin-panel">
+                    <h3>Пользователи</h3>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Email</th>
+                            <th>Fullname</th>
+                            <th>Hobby</th>
+                            <th>Blogs count</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%
+                            let num = 0;
+                            users.forEach(userT=>{
+                                if(!userT.isAdmin){
+                                    num++
+                        %>
+                            <tr>
+                                <td><%=num%></td>
+                                <td><%=userT.email%></td>
+                                <td><%=userT.full_name%></td>
+                                <%
+                                    if(userT.hobby){
+
+                                %>
+                                    <td><%=userT.hobby%></td>
+                                <%
+                                    }else
+                                        {
+                                %>
+                                    <td>-</td>
+                                <%
+                                    }
+                                %>
+                                <td>
+                                    <%
+                                        let blogCount = 0;
+                                        blogs.forEach(blog=>{
+                                            if(blog.author.id == userT.id){
+                                                blogCount++
+                                        }})
+                                    %>
+                                    <%
+                                        if(blogCount>0){
+                                    %>
+                                        <%=blogCount%>
+                                    <%
+                                        }else{
+                                    %>
+                                        -
+                                    <%
+                                        }
+                                    %>
+                                </td>
+                                <td>
+                                    <%
+                                       if(userT.isBlocked){
+                                    %>
+                                        <button onclick="unlockUser('<%=userT.id%>', '<%=user.id%>')"><img src="/images/icons/unlockUser.png" alt=""></button>
+                                    <%
+                                       }else {
+                                    %>
+                                        <button onclick="blockUser('<%=userT.id%>', '<%=user.id%>')"><img src="/images/icons/blockUser.png" alt=""></button>
+                                    <%
+                                       }
+                                    %>
+                                </td>
+                                <td>
+                                    <button onclick="deleteUser('<%=userT.id%>', '<%=user.id%>')"><img src="/images/icons/garbageUser.png" alt=""></button>
+                                </td>
+                            </tr>
+                        <%
+                        }
+                            })
+                        %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="admin-panel">
+                    <h3>Блоги</h3>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Название Блога</th>
+                            <th>Автор</th>
+                            <th>Категория</th>
+                            <th>Кол-во просмотров</th>
+                            <th>Кол-во комментариев</th>
+                            <th>Кол-во пользователей с заметками</th>
+                            <th>Дата создания</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%
+                            let num2 = 0;
+                            blogs.forEach(blog=>{
+                                num2++;
+                        %>
+                        <tr>
+                            <td><%=num2%></td>
+                            <td><%=blog.name%></td>
+                            <td><%=blog.author.full_name%></td>
+                            <td><%=blog.category.name%></td>
+                            <td><%=blog.views.length%></td>
+                            <td><%=blog.comments.length%></td>
+                            <td>
+                                <%
+                                    let notes = 0
+                                    users.forEach(user=> {
+                                        if (user.toNote.includes(blog.id)) {
+                                            notes++
+                                        }
+                                    })
+                                %>
+                                <%=notes%>
+                            </td>
+                            <td><%=blog.date%></td>
+                            <td>
+                                <button onclick="deleteBlog('<%=blog._id%>','<%=user.id%>')"><img src="/images/icons/garbageUser.png" alt=""></button>
+                            </td>
+                        </tr>
+                        <%
+                        })
+                        %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="aboutme">
+                    <a style="margin-top: 40px" href="/api/signOut">Выйти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/scripts.ejs')%>
+</body>
+</html>

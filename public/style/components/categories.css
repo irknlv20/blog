@@ -1,0 +1,19 @@
+.category-header{
+    text-align: left !important;
+}
+.category-content{
+    display: flex;
+    flex-direction: column;
+}
+.category-content a{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 46px;
+    color: #007BFF;
+    text-decoration: none;
+    border-bottom: 1px solid #E7E7E7;
+}
+.category-content a:hover{
+    transition: .3s;
+    color: red;
+}

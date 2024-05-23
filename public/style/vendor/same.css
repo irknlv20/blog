@@ -1,0 +1,210 @@
+.container{
+    padding: 100px 5% 50px;
+    background-color:#F5F5F5;;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+.card{
+    margin-bottom: 80px;
+}
+.card-header{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 46px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.card-desc{
+    text-align: center;
+    font-weight: 400;
+    font-size: 17px;    
+    line-height: 20px;
+    margin-bottom: 60px;
+}
+.card-img{
+    text-align: center;
+}
+.card-img img{
+    width: 100%;
+}
+.card-content{
+    margin: 25px 0;
+}
+.card-content a{
+    text-decoration: none;
+    color: black;
+    transition: .4s;
+}
+.card-content a:hover{
+    color: #4869e8;
+}
+.card-content h3{
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 24px;
+}
+.card-content p{
+    display: inline-block;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    white-space: pre-line;
+    text-align: justify;
+}
+.card-about{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card-about>div{
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    gap: 10px;
+}
+.card-about>div>a{
+    text-decoration: none;
+    color: black;
+}
+.card-comments h3{
+    font-size: 20px;
+}
+.card-comments{
+    padding: 40px 0;
+    width: 100%;
+}
+.card-comments img{
+    width: 15px;
+}
+.card-comments-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-comments-header button{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background: white;
+    cursor: pointer;
+}
+.card-comment{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 0 30px 0;
+    border-top: 1px solid #E7E7E7;
+}
+.card-comment:nth-child(2){
+    border-top: none !important;
+}
+.card-comment-user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-comment-user-left{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 30px;
+}
+.card-comment-user-left img{
+    width: 50px;
+    border-radius: 50%;
+}
+.card-comment-user-left span{
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+}
+.card-comment-user-right{
+    color: #d31b1b;
+}
+.card-comment-content p{
+    margin-left: 80px;
+}
+.card-comment-content p{
+    display: inline-block;
+    font-size: 15px;
+    line-height: 24px;
+    color: #000000;
+}
+.card-comment-date{
+    margin-left: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: 14px;
+    color: #606060;
+    position: relative;
+}
+.card-comment-date-left{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+}
+.card-comment-date-left-btn{
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    transition: .4s;
+    color: #b20606;
+}
+.card-comment:hover .card-comment-date-left button{
+    display: flex;
+}
+
+.card-comment-date-right{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.card-comment-date img{
+    width: 12px;
+}
+.card-comment-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-comment-content-btn button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.card-comment-content-btn button>img{
+    width: 25px;
+}
+.edit-comment-btn {
+    background-color: #3ca9d0;
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+}
+.comm-form{
+    margin-left: 80px;
+    display: flex;
+    gap: 10px;
+}
+.comm-form input{
+    padding: 5px 10px;
+    font-size: 14px;
+    height: 16px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 10px;
+}

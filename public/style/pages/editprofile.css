@@ -1,0 +1,71 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 40px 0;
+    padding: 40px 0;
+    background-color: #FFF;
+}
+.profile h2{
+    font-weight: 600;
+    font-size: 30px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+.profile-form{
+    color: #000;
+    margin-top: 20px;
+    display: flex;
+    padding: 20px 0 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 40%;
+    box-sizing: border-box;
+    border-radius: 40px;
+}
+
+.profile-form input{
+    width: 50%;
+    background-color: #FFFFFF;
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+    padding: 10px 15px;
+    outline: none;
+    box-sizing: border-box;
+}
+#avatarimg{
+    display: none;
+}
+.profile-form button{
+    background-color: crimson;
+    border-radius: 4px;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    color: #FFF;
+    border: none;
+    margin-top: 10px;
+}
+    .del-button{
+        background-color: #176017;
+        border-radius: 4px;
+        width: 20%;
+        box-sizing: border-box;
+        padding: 10px 15px;
+        color: #FFF;
+        border: none;
+        margin-top: 10px;
+    }
+.profile-form label{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 5px;
+}
+.profile-form label img{
+    padding: 10px;
+    background-color:crimson;
+    border: 3px solid black;
+    border-radius: 50%;
+}

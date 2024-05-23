@@ -1,0 +1,14 @@
+<div class="categories">
+    <div class="category-header card-header">
+        Категории
+    </div>
+    <div class="category-content">
+        <%
+            categories.forEach(category => {
+        %>
+            <a href="?category=<%=category.key%>"><%=category.name%></a>
+        <%        
+            });
+        %>
+    </div>
+</div>

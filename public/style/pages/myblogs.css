@@ -1,0 +1,79 @@
+.myblogs-card-header{
+    display: flex;
+    justify-content: space-between;
+}
+.myblogs-card-header a{
+    border: none;
+    background-color: #00A2DC;
+    color: #FFFFFF;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 15px;
+    font-weight: 300;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+.card-content-header{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 20px;
+}
+.burgermenu-open{
+    padding-left: 15px;
+}
+.burgermenu-open>p{
+    display: inline-block;
+    position: relative;
+    color: #666;   
+}
+.burgermenu-open>p::before{
+    content:'...';
+    position: absolute;
+    left: -20px;
+    top: -30px;
+    text-orientation: upright;
+    writing-mode: vertical-lr;
+    font-size: 40px;
+    word-break: break-all;
+    letter-spacing: -41px;
+}
+.option-burgermenu{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 25px;
+    box-sizing: border-box;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.6);    
+    border-radius: 10px;
+}
+.option-burgermenu a{
+    color: black;
+    text-decoration: none;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    background-color: white;
+    font-weight: 600;
+    font-size: 15px;
+}
+.option-burgermenu button{
+    color:red;
+    border: none;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    background-color: white;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+}
+.burgermenu-open{
+    cursor: pointer;
+}
+.burgermenu-open:hover .option-burgermenu{
+    display: flex !important;
+}

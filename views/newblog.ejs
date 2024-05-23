@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head.ejs')%>
+    <title>Decode Blog</title>
+</head>
+<body>
+    <%-include('partials/header.ejs')%>
+    <div class="container">
+        <div class="newblog">
+                <div class="newblog-card-header">
+                    <h2>Новый блог</h2>
+                </div>
+                <form action="/api/newblog" method="POST" class="new-blog-container" enctype="multipart/form-data">
+                    <input type="text" placeholder="Введите заголовок блога" name="name">
+                    <select name="category" id="">
+                        <option disabled selected hidden>Выберите категорию</option>
+                        <%
+                            categories.forEach(category => {
+                        %>
+                            <option value = "<%=category._id%>"><%=category.name%></option>
+                        <%
+                            })
+                        %>
+                    </select>
+                    <input id="image-file" type="file" name="image">
+                    <label for="image-file">Выберите картинку</label>
+                    <textarea placeholder="Введите описание блога" name="description" rows="14" cols="10" wrap="soft"></textarea>
+                    <textarea placeholder="Введите контент блога" name="content" rows="14" cols="10" wrap="soft"></textarea>
+                    <button type="submit">Создать</button>
+                </form>
+        </div>
+    </div>
+</body>
+</html>

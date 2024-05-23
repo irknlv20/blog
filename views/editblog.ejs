@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head.ejs')%>
+    <title>Decode Blog</title>
+</head>
+<body>
+    <%-include('partials/header.ejs')%>
+    <div class="container">
+        <div class="newblog">
+                <div class="newblog-card-header">
+                    <h2>Редактирование блога</h2>
+                </div>
+                <form action="/api/editblog" method="POST" class="new-blog-container" enctype="multipart/form-data" >
+                    <input type="hidden" name="id" value="<%=blog._id%>">
+                    <input type="text" placeholder="Введите заголовок блога" name="name" value="<%=blog.name%>">
+                    <select name="category" id="">
+                        <option disabled selected hidden>Выберите категорию</option>
+                        <%
+                            categories.forEach(category => {
+                                if(category.id==blog.category._id){
+                        %>
+                            <option value ="<%=category._id%>" selected><%=category.name%></option>
+                        <%
+                                }else{
+                        %>
+                            <option value = "<%=category._id%>"><%=category.name%></option>
+                        <%
+                            }
+                          })
+                        %>
+                    </select>
+                    <input id="image-file" type="file" name="image">
+                    <label for="image-file">Выберите картинку</label>
+                    <textarea placeholder="Введите описание блога" name="description" rows="14" cols="10" wrap="soft"><%=blog.description%></textarea>
+                    <textarea placeholder="Введите контент блога" name="content" rows="14" cols="10" wrap="soft"><%=blog.content%></textarea>
+                    <button>Сохранить</button>
+                </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head.ejs')%>
+    <title>Decode Blog</title>
+</head>
+<body>
+    <%-include('partials/header.ejs')%>
+    <div class="container">
+        <div class="main">
+            <div class="main-left">
+                <div class="main-blog">
+                    <div class="main-title-header myblogs-card-header">
+                        <h2>Мои блоги</h2>
+                        <a href="/newblog">Новый блог</a>
+                    </div>
+                    <%
+                        if(myBlogs.length>0){
+                        myBlogs.forEach(blog => {
+
+                    %>
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="<%=blog.image%>" alt="IMG">
+                            </div>
+                            <div class="card-content">
+                                <a href="/blog/<%=blog._id%>"><h3><%=blog.name%></h3></a>
+                                <p>
+                                    <%=blog.description%>
+                                </p>
+                            </div>
+                            <div class="card-about">
+                                <div>
+                                    <img src="/images/icons/calendar.png" alt="">
+                                    <%=blog.date%>
+                                </div>
+                                <div>
+                                    <img src="/images/icons/eye.png" alt="">
+                                    <%=blog.views.length%>
+                                </div>
+                                <div>
+                                    <img src="/images/icons/shape.png" alt="">
+                                    <%=blog.comments.length%>
+                                </div>
+                                <div>
+                                    <img src="/images/icons/comments.png" alt="">
+                                    <%=blog.category.name%>
+                                </div>
+                                <div>
+                                    <img src="/images/icons/user.png" alt="">
+                                    <%=blog.author.full_name%>
+                                </div>
+                            </div>
+                        </div>
+                    <%
+                            })
+                        }
+                    %>
+                </div>
+            </div>
+            <div class="main-right">
+                <%-include('partials/aboutme.ejs')%>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

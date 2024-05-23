@@ -1,0 +1,30 @@
+<header>
+    <div class="head-logo">
+        <a href="/"><h2>Decode Blog</h2></a>
+    </div>
+    <form class="head-search">
+        <input type="text" name="search" placeholder="Поиск по блогам">
+        <button>
+            <img src="/images/icons/loop.png" alt="">
+            Найти
+        </button>
+    </form>
+    <%
+        if(user._id){
+    %>
+    <div class="head-img">
+        <a href="/myblogs/<%=user._id%>">
+            <img src="<%=user.image%>" alt="">
+        </a>
+    </div>
+    <%        
+        }else{
+    %>
+    <div class="head-buttons">
+        <a href="/registration">Регистрация</a>
+        <a href="/login">Вход</a>
+    </div>
+    <%
+    }
+    %>
+</header>

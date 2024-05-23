@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head.ejs')%>
+    <title>Decode Blog</title>
+</head>
+<body>
+    <%-include('partials/header.ejs')%>
+    <%addView%>
+    <div class="container">
+        <div class="main">
+            <div class="main-left">
+                <div class="main-blog">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="<%=blog.image%>" alt="IMG">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-content-header">
+                                <h3><%=blog.name%></h3>
+                                <%
+                                    if(user.id==blog.author.id){
+                                %>
+                                    <div class="burgermenu-open">
+                                        <p>Еще</p>
+                                        <div class="option-burgermenu">
+                                            <a href="/editblog/<%=blog._id%>">Редактировать</a>
+                                            <button onclick="blog('<%=blog._id%>','<%=blog.author._id%>')">Удалить</button>
+                                        </div>
+                                    </div>
+                                <%
+                                    }
+                                %>
+                            </div>
+                            <p>
+                                <%=blog.description%>
+                            </p>
+                            <p>
+                                <%=blog.content%>
+                            </p>
+                        </div>
+                        <div class="card-about">
+                            <div>
+                                <img src="/images/icons/calendar.png" alt="">
+                                <%=blog.date%>
+                            </div>
+                            <div>
+                                <img src="/images/icons/eye.png" alt="">
+                                <%=blog.views.length%>
+                            </div>
+                            <div>
+                                <img src="/images/icons/shape.png" alt="">
+                                <%=blog.comments.length%>
+                            </div>
+                            <div>
+                                <img src="/images/icons/comments.png" alt="">
+                                <%=blog.category.name%>
+                            </div>
+                            <div>
+                                <img src="/images/icons/user.png" alt="">
+                                <a href="/profile/<%=blog.author.id%>"><%=blog.author.full_name%></a>
+                            </div>
+                        </div>
+                            <div class="card-comments">
+                                <div class="card-comments-header">
+                                    <h3><%=blog.comments.length%>
+                                        <%
+                                        if(blog.comments.length == 1 || (blog.comments.length-1)%100 == 0){
+                                        %>
+                                            комментарий
+                                        <%
+                                        }else if(blog.comments.length >= 2 && blog.comments.length <= 4){
+                                        %>
+                                            комментария
+                                        <%
+                                        }else{
+                                        %>
+                                            комментариев
+                                        <%
+                                        }
+                                        %>
+                                    </h3>
+                                    <%
+                                        if(user._id && user.toNote.includes(blog._id)){
+                                    %>
+                                        <div>
+                                            <button style="background-color: #c4c4c4" onclick="deleteFromNotes('<%=blog.id%>', '<%=user.id%>')">
+                                                Добавлено в заметки
+                                            </button>
+                                        </div>
+                                    <%
+                                        }else{
+                                    %>
+                                        <div>
+                                            <button onclick="addToNotes('<%=blog.id%>', '<%=user.id%>')">
+                                                Добавить в заметки
+                                            </button>
+                                        </div>
+                                    <%
+                                        }
+                                    %>
+
+                                </div>
+                                <%
+                                    let comIdx = 0;
+                                    blog.comments.forEach(comment => {
+                                        comIdx++
+                                %>
+                                <div class="card-comment">
+                                    <div class="card-comment-user">
+                                        <div class="card-comment-user-left">
+                                            <img src="<%=comment.user.image%>" alt="">
+                                            <span><%=comment.user.full_name%></span>
+                                        </div>
+                                        <%
+                                            if(comment.user.id == blog.author.id){
+                                        %>
+                                            <div class="card-comment-user-right">Автор</div>
+                                        <%
+                                            }
+                                        %>
+                                    </div>
+                                    <div id="comment<%=comIdx%>" class="card-comment-content">
+                                        <p><%=comment.content%></p>
+                                        <%
+                                            if(comment.user.id==user.id){
+                                        %>
+                                            <div class="card-comment-content-btn">
+                                                <button onclick="deleteComments('<%=comment._id%>','<%=comment.user._id%>', '<%=blog._id%>')">
+                                                    <img src="/images/icons/garbage.png" alt="">
+                                                </button>
+                                            </div>
+                                        <%
+                                            }
+                                        %>
+
+                                    </div>
+                                    <div class="card-comment-date">
+                                        <%
+                                            if(comment.user.id==user.id){
+                                        %>
+                                        <div id="editcomm<%=comIdx%>" class="card-comment-date-left">
+                                            <button onclick="editComment('<%=comIdx%>','<%=blog._id%>', '<%=comment.id%>', '<%=comment.content%>')" class="card-comment-date-left-btn">
+                                                Редактировать
+                                            </button>
+                                        </div>
+                                        <%
+                                            }
+                                        %>
+                                        <div class="card-comment-date-right">
+                                            <img src="/images/icons/calendar.png" alt="">
+                                            <small>Добавлено: </small><%=comment.date%>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%
+                                })%>
+                                <%
+                                    if(user._id){
+                                %>
+                                    <%-include('partials/comment.ejs')%>
+                                <%
+                                    }else{
+                                %>
+                                    <%-include('partials/comment-banner.ejs')%>
+                                <%
+                                    }
+                                %>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-right">
+                <%-include('partials/categories.ejs')%>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/scripts.ejs')%>
+</body>
+</html>

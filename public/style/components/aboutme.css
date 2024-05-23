@@ -1,0 +1,40 @@
+.aboutme{
+    padding-bottom: 30px;
+    text-align: center  ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.aboutme img{
+    width: 100px;
+    border-radius: 50%;
+}
+.aboutme h3{
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 46px;
+    color: #000000;
+}
+.aboutme a{
+    border: none;
+    background-color: #00A2DC;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 300;
+    text-decoration: none;
+    box-sizing: border-box;
+    width: 180px;
+}
+.aboutme a:nth-of-type(2){
+    background-color: #1cc71c;
+}
+.aboutme a:last-child{
+    background-color: #e53a3a;
+}
+.aboutme p{
+    margin-bottom: 15px;
+}

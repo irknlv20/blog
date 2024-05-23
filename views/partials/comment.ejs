@@ -1,0 +1,5 @@
+<form action="/api/newcomment" method="POST" class="comment-input">
+    <input style="display: none" name="blogId" value="<%=blog._id%>">
+    <textarea placeholder="Введите текст комментария" name="content" rows="4" cols="10" wrap="soft"></textarea>
+    <button type="submit">Отправить</button>
+</form>
